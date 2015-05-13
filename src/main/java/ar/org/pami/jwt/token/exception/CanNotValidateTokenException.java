@@ -22,25 +22,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
  */
 
-package ar.gob.pami.jwt.token;
+package ar.org.pami.jwt.token.exception;
 
-import com.auth0.jwt.JWTVerifier;
+public class CanNotValidateTokenException extends RuntimeException {
 
-public class TokenValidatorBuilder {
+  private static final long serialVersionUID = -7266751711615182617L;
 
-  private TokenValidator validator;
-
-  public TokenValidatorBuilder() {
-    this.validator = new TokenValidator();
-  }
-
-  public TokenValidatorBuilder withSecret(String secret) {
-    this.validator.setVerifier(new JWTVerifier(secret));
-    return this;
-  }
-
-  public TokenValidator build() {
-    return this.validator;
+  public CanNotValidateTokenException(String message, Exception e) {
+    super(message, e);
   }
 
 }

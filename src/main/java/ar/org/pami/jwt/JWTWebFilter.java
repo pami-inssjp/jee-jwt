@@ -21,7 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
  */
-package ar.gob.pami.jwt;
+package ar.org.pami.jwt;
 
 import java.io.IOException;
 import java.util.Map;
@@ -37,8 +37,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 
-import ar.gob.pami.jwt.token.TokenValidator;
-import ar.gob.pami.jwt.token.TokenValidatorBuilder;
+import ar.org.pami.jwt.token.TokenValidator;
+import ar.org.pami.jwt.token.TokenValidatorBuilder;
 
 //@WebFilter(filterName = "jwt-filter")
 public class JWTWebFilter implements Filter {

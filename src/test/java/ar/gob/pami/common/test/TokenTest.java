@@ -8,10 +8,10 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 
-import ar.gob.pami.jwt.token.TokenGenerator;
-import ar.gob.pami.jwt.token.TokenGeneratorBuilder;
-import ar.gob.pami.jwt.token.TokenValidator;
-import ar.gob.pami.jwt.token.TokenValidatorBuilder;
+import ar.org.pami.jwt.token.TokenGenerator;
+import ar.org.pami.jwt.token.TokenGeneratorBuilder;
+import ar.org.pami.jwt.token.TokenValidator;
+import ar.org.pami.jwt.token.TokenValidatorBuilder;
 
 public class TokenTest {
 

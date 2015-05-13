@@ -21,56 +21,51 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
  */
+package ar.org.pami.jwt.token;
 
-package ar.gob.pami.jwt.token;
-
-import java.util.Map;
-
-import org.apache.log4j.Logger;
-
+import com.auth0.jwt.Algorithm;
 import com.auth0.jwt.JWTSigner;
 import com.auth0.jwt.JWTSigner.Options;
 
-public class TokenGenerator {
+public class TokenGeneratorBuilder {
 
-  private Logger logger = Logger.getLogger(TokenGenerator.class);
-
+  private String algorithm;
   private String secret;
 
-  private JWTSigner signer;
-
-  private Options options;
-
-  public String generate(Map<String, Object> claim) {
-    String generatedToken = this.getSigner().sign(claim, this.getOptions());
-
-    logger.debug("Generated Token = " + generatedToken);
-    return generatedToken;
-
+  public TokenGeneratorBuilder withSecret(String secret) {
+    this.setSecret(secret);
+    return this;
   }
 
-  public String getSecret() {
-    return secret;
+  public TokenGeneratorBuilder withAlgorithm(String algorithm) {
+    this.setAlgorithm(algorithm);
+    return this;
+  }
+
+  public TokenGenerator build() {
+    JWTSigner signer = new JWTSigner(this.getSecret());
+    TokenGenerator generator = new TokenGenerator();
+    Options options = new Options();
+    options.setAlgorithm(Algorithm.valueOf(this.getAlgorithm()));
+    generator.setOptions(options);
+    generator.setSigner(signer);
+    return generator;
+  }
+
+  private String getSecret() {
+    return this.secret;
   }
 
   public void setSecret(String secret) {
     this.secret = secret;
   }
 
-  public void setSigner(JWTSigner signer) {
-    this.signer = signer;
+  public String getAlgorithm() {
+    return algorithm;
   }
 
-  public JWTSigner getSigner() {
-    return this.signer;
-  }
-
-  public Options getOptions() {
-    return options;
-  }
-
-  public void setOptions(Options options) {
-    this.options = options;
+  public void setAlgorithm(String algorithm) {
+    this.algorithm = algorithm;
   }
 
 }

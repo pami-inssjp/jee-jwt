@@ -21,13 +21,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
  */
-package ar.gob.pami.jwt.token;
+package ar.org.pami.jwt.token;
 
 import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import ar.gob.pami.jwt.token.exception.CanNotValidateTokenException;
+import ar.org.pami.jwt.token.exception.CanNotValidateTokenException;
 
 import com.auth0.jwt.JWTVerifier;
 
